@@ -41,13 +41,44 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Navbar className="navbar-fixed-top">
+          <Navbar.Header>
+            <Navbar.Brand>
+              <Image src="/img/logo.png" className="App-logo" alt="logo"/>
+            </Navbar.Brand>
+          </Navbar.Header>
+        </Navbar>
+        <Grid>
+          <Row>
+            {this.state.filterMovies.map((movie, i) => {
+                  return(
+                    <Col key={i} md={3} xs={6}>
+                      <div className="thumb">
+                          <div className="thumbImageContainer">
+                            <div className="thumbImage" style={{background: "url(http://image.tmdb.org/t/p/w185/" + movie.poster_path + ")", backgroundSize: 'cover'}}/>
+                            <div className="thumbImageOverlay">
+                              <div>
+                              </div>
+                            </div>
+                          </div>
+                        <div className="thumbTitle">{movie.name}</div>
+                        <div className="thumbSubtitle">
+                          <ul>
+                            {movie.genre_ids.slice(0, 2).map((genreId, j) => {
+                              let genre = _.find(this.state.genres, { 'id': genreId });
+                              if(genre) {
+                                return(<li key={j}>{genre.name}</li>)
+                              }
+                            }
+                            )}
+                          </ul>
+                        </div>
+                      </div>
+                    </Col>
+                  );
+            })}
+          </Row>
+        </Grid>
       </div>
     );
   }
