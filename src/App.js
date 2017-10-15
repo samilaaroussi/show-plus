@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import axios from 'axios';
 import {Image, Navbar, Collapse, Modal, Button, Row, Col, Grid} from 'react-bootstrap';
 import _ from 'lodash';
+import CircularProgress from './percentageCircle';
 import './App.css';
 
 class App extends Component {
@@ -56,12 +57,19 @@ class App extends Component {
                     <Col key={i} md={3} xs={6}>
                       <div style={{transitionDelay: '0.' + i + 's'}} className="thumb">
                           <div className="thumbImageContainer">
+
                             <div className="thumbImage" style={{background: "url(http://image.tmdb.org/t/p/w185/" + movie.poster_path + ")"}}/>
-                            <div className="thumbImageOverlay">
-                              <div className="rating">
-                                {movie.vote_average}
+
+                            <a href="#">
+                              <div className="thumbImageOverlay">
+                                <div className="rating">
+                                  <CircularProgress
+                                    strokeWidth="4"
+                                    radius="24"
+                                    percentage={movie.vote_average}/>
+                                </div>
                               </div>
-                            </div>
+                            </a>
                           </div>
                         <div className="thumbTitle">{movie.name}</div>
                         <div className="thumbSubtitle">
