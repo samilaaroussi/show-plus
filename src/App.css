@@ -2,6 +2,13 @@
   color: #fff;
 }
 
+.movieDetails {
+  min-height: 500px;
+  background-size: cover !important;
+  border-radius: 10px;
+  color: #fff;
+}
+
 .navbar-header {
     float: left;
     padding: 15px;
@@ -66,6 +73,40 @@
   -webkit-transition: all .4s ease-in-out;
   -ms-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;
+}
+
+.movieDetailsContainer .movieDetailsOverlay {
+  position: absolute;
+  padding: 24px 32px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  border-radius: 10px;
+  box-shadow: none;
+  background-color: rgba(0,0,0, .6);
+  -webkit-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  color: #FFF;
+}
+
+.modal-dialog {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 50px);
+}
+
+.modal-dialog .modal-content {
+  border-radius : 10px !important;
+  width: 100%;
+}
+
+.modal-open .modal {
+  overflow-y: hidden !important;
 }
 
 .thumbTitle {

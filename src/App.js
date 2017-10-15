@@ -3,17 +3,38 @@ import logo from './logo.svg';
 import axios from 'axios';
 import {Image, Navbar, Collapse, Modal, Button, Row, Col, Grid} from 'react-bootstrap';
 import _ from 'lodash';
+import Header from './Header';
 import CircularProgress from './percentageCircle';
+import MovieDetails from './MovieDetails';
 import './App.css';
 
 class App extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       filterMovies: [],
-      genres: []
+      genres: [],
+      openDetails: [],
     };
+
+    this.closeDetails = this.closeDetails.bind(this);
+  }
+
+  openDetails(id) {
+    this.setState({
+        openDetails: {
+            [id]: true
+        }
+    });
+  }
+
+  closeDetails() {
+    this.setState({openDetails: false});
+  }
+
+  handleMovieDetails() {
+    this.openDetails();
   }
 
   componentDidMount() {
@@ -42,13 +63,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar className="navbar-default navbar-fixed-top">
-          <Navbar.Header>
-            <Navbar.Brand>
-              <Image src="/img/logo.png" className="App-logo" alt="logo"/>
-            </Navbar.Brand>
-          </Navbar.Header>
-        </Navbar>
+        <Header/>
         <Grid>
           <Row>
             {this.state.filterMovies.map((movie, i) => {
@@ -60,7 +75,7 @@ class App extends Component {
 
                             <div className="thumbImage" style={{background: "url(http://image.tmdb.org/t/p/w185/" + movie.poster_path + ")"}}/>
 
-                            <a href="#">
+                            <a href="javascript:void(0)" onClick={this.openDetails.bind(this, i)}>
                               <div className="thumbImageOverlay">
                                 <div className="rating">
                                   <CircularProgress
@@ -84,6 +99,9 @@ class App extends Component {
                           </ul>
                         </div>
                       </div>
+                      <Modal bsSize="large" show={this.state.openDetails[i] || false} onHide={this.closeDetails}>
+                        <MovieDetails id={movie.id}/>
+                      </Modal>
                     </Col>
                   );
             })}
