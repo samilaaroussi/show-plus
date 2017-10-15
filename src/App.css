@@ -51,7 +51,7 @@
   border-radius: 10px;
   box-shadow: none;
   background-color: rgba(0,0,0, .6);
-  background: linear-gradient(180deg, rgba(255,255,255,0), rgba(0,0,0,0.6));
+  background: linear-gradient(180deg, rgba(255,255,255,0) 40%, rgba(0,0,0,0.8) 100%);
   -webkit-transition: all .3s ease-in-out;
   -ms-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
