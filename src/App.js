@@ -41,7 +41,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar className="navbar-fixed-top">
+        <Navbar className="navbar-default navbar-fixed-top">
           <Navbar.Header>
             <Navbar.Brand>
               <Image src="/img/logo.png" className="App-logo" alt="logo"/>
@@ -51,13 +51,15 @@ class App extends Component {
         <Grid>
           <Row>
             {this.state.filterMovies.map((movie, i) => {
+                  let ratingColor = '';
                   return(
                     <Col key={i} md={3} xs={6}>
-                      <div className="thumb">
+                      <div style={{transitionDelay: '0.' + i + 's'}} className="thumb">
                           <div className="thumbImageContainer">
-                            <div className="thumbImage" style={{background: "url(http://image.tmdb.org/t/p/w185/" + movie.poster_path + ")", backgroundSize: 'cover'}}/>
+                            <div className="thumbImage" style={{background: "url(http://image.tmdb.org/t/p/w185/" + movie.poster_path + ")"}}/>
                             <div className="thumbImageOverlay">
-                              <div>
+                              <div className="rating">
+                                {movie.vote_average}
                               </div>
                             </div>
                           </div>
@@ -67,7 +69,7 @@ class App extends Component {
                             {movie.genre_ids.slice(0, 2).map((genreId, j) => {
                               let genre = _.find(this.state.genres, { 'id': genreId });
                               if(genre) {
-                                return(<li key={j}>{genre.name}</li>)
+                                return(<li style={{transitionDelay: '0.' + j + 's'}} key={j}>{genre.name}</li>)
                               }
                             }
                             )}
