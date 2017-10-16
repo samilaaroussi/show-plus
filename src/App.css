@@ -1,10 +1,16 @@
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
 .App {
   color: #fff;
 }
 
 .movieDetails {
-  min-height: 500px;
+  height: 500px;
   background-size: cover !important;
+  //filter: grayscale(100%) brightness(120%) contrast(130%);
   border-radius: 10px;
 }
 
@@ -27,6 +33,10 @@
 .thumb {
     padding: 10px 0;
     width: 200px;
+    transform: scale(.95);
+    -webkit-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    transition: all 500ms ease-in-out;
 }
 
 .thumbImage {
@@ -39,8 +49,18 @@
   background-size: cover !important;
 }
 
-.thumbImage:hover {
-  width: 214px;
+.thumbImageContainer:hover .thumbImage {
+  transform: scale(.95);
+  -webkit-transition: transform 500ms ease-in-out;
+  -ms-transition: transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out;
+}
+
+.thumbImageContainer .thumbImage {
+  transform: scale(1);
+  -webkit-transition: transform 500ms ease-in-out;
+  -ms-transition: transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out;
 }
 
 .thumbImageContainer {
@@ -56,11 +76,10 @@
   opacity: 1;
   border-radius: 10px;
   box-shadow: none;
-  background-color: rgba(0,0,0, .6);
   background: linear-gradient(180deg, rgba(255,255,255,0) 40%, rgba(0,0,0,0.8) 100%);
-  -webkit-transition: all .3s ease-in-out;
-  -ms-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
   color: #FFF;
 }
 
@@ -68,16 +87,17 @@
   display: block;
   /*visibility: visible;
   opacity: 1;*/
-  box-shadow: 0 0 5px #333;
-  -webkit-transition: all .4s ease-in-out;
-  -ms-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+  opacity: 0;
+  transform: scale(.95);
+  -webkit-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 
 .movieDetailsContainer .movieDetailsOverlay {
   position: absolute;
   padding: 24px 32px;
-  font-size: 13px;
+  font-size: 14px;
   top: 0;
   left: 0;
   width: 100%;
@@ -92,13 +112,28 @@
   transition: all .3s ease-in-out;
 }
 
-.modal-dialog {
-
+.modal {
+  text-align: center;
 }
 
 .modal-dialog .modal-content {
-  border-radius : 10px !important;
+  border-radius : 11px !important;
   width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
 }
 
 .thumbTitle {
@@ -142,6 +177,9 @@
 .movieList ul {
   margin: 0;
   padding: 0;
+  color: #DAE0D4;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .movieList ul li {
@@ -149,6 +187,9 @@
   display: inline;
   margin: 0;
   padding: 0;
+  color: #fff;
+  font-weight: normal;
+  text-transform: none;
 }
 
 .movieList ul li:after {
@@ -174,15 +215,15 @@
 .movieTitle {
   font-weight: bold;
   font-size: 54px;
-  margin-top: 0;
+  margin-bottom: 0;
   color: #fff;
 }
 
 .movieOverview {
   text-align: justify;
   height: 150px;
-  /*overflow: hidden;
-  white-space: nowrap;
+  overflow: hidden;
+  /*white-space: nowrap;
   text-overflow: ellipsis;*/
 }
 

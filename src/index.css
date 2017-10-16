@@ -11,6 +11,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+}
+
 :root {
     --progress-bg-color: rgba(255,255,255,0.3);
     --progress-fg-color: #fff;
