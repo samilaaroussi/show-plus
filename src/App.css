@@ -219,6 +219,34 @@
   color: #fff;
 }
 
+.movieSubtitle {
+  padding-bottom: 20px;
+}
+
+.modal-header {
+  border-bottom: 0;
+  padding: 0;
+}
+
+.close {
+  text-shadow: none;
+  color: #fff;
+  font-weight: normal;
+  font-size: 42px;
+  transition: all 0.2s ease-in-out;
+  opacity: 0.5;
+}
+
+a:hover, a:active, a:focus {
+  outline: none;
+}
+
+.close:hover {
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+  opacity: 0.2;
+}
+
 .movieOverview {
   text-align: justify;
   height: 150px;

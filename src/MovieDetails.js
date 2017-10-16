@@ -32,7 +32,7 @@ class MovieDetails extends Component {
 
     //filter events
     https://api.themoviedb.org/3/tv/{tv_id}?api_key=<<api_key>>&language=en-US
-    axios.get('https://api.themoviedb.org/3/tv/' + this.props.id + '?api_key=92b418e837b833be308bbfb1fb2aca1e&language=' + userLang +'&sort_by=popularity.desc&page=1&timezone=America/New_York&include_null_first_air_dates=false')
+    axios.get('https://api.themoviedb.org/3/tv/' + this.props.id + '?api_key=92b418e837b833be308bbfb1fb2aca1e&language=' + userLang + '&sort_by=popularity.desc&page=1&timezone=America/New_York&include_null_first_air_dates=false')
      .then(items => {
        this.setState({movieDetails: items.data});
        this.setState({creators: items.data.created_by});
@@ -43,12 +43,15 @@ class MovieDetails extends Component {
   render() {
     return (
       <div className="movieDetailsContainer">
-        <div className="movieDetails" style={{background: "url(https://image.tmdb.org/t/p/w500/" + this.state.movieDetails.backdrop_path + ") #333"}}>
+
+        <div className="movieDetails" style={{background: "url(https://image.tmdb.org/t/p/w500/" + this.state.movieDetails.backdrop_path + ")"}}>
         </div>
         <div className="movieDetailsOverlay">
+        <Modal.Header closeButton={true}>
+        </Modal.Header>
           <Col md={12}>
             <h1 className="movieTitle">{this.state.movieDetails.name}<small></small></h1>
-            <div className="movieDate">
+            <div className="movieSubtitle">
               {this.state.genre.name}
 
               {this.state.movieDetails.first_air_date && this.state.movieDetails.last_air_date ?
