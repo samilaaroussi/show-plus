@@ -3,9 +3,12 @@ body {
   padding-left: 0;
   padding-right: 0;
   padding-bottom: 0;
-  padding-top: 95px;
+  padding-top: 55px;
   background-image: linear-gradient(to bottom, #684192, #635DF8);
   font-family: 'Roboto', Arial;
+  word-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :root {
@@ -36,5 +39,5 @@ body {
 }
 
 .movieDetailsOverlay .CircularProgress-Text {
-    font-size: 56px;
+    font-size: 64px;
 }

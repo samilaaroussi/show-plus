@@ -53,7 +53,7 @@ class App extends Component {
     }));
 
     //filter events
-    axios.get('https://api.themoviedb.org/3/discover/tv?api_key=92b418e837b833be308bbfb1fb2aca1e&language=en-US&sort_by=popularity.desc&page=1&timezone=America/New_York&include_null_first_air_dates=false')
+    axios.get('https://api.themoviedb.org/3/discover/tv?api_key=92b418e837b833be308bbfb1fb2aca1e&language=en-US&sort_by=popularity.desc&page=4&timezone=America/New_York&include_null_first_air_dates=false')
      .then(items => {
        //console.log(items.data.results);
        this.setState({filterMovies: items.data.results});
@@ -69,8 +69,8 @@ class App extends Component {
             {this.state.filterMovies.map((movie, i) => {
                   let ratingColor = '';
                   return(
-                    <Col key={i} md={3} xs={6}>
-                      <div style={{transitionDelay: '0.' + i + 's'}} className="thumb">
+                    <Col key={i} md={3} xs={12}>
+                      <div style={{transitionDelay: '0.' + i + 's'}} className="thumb center-block">
                           <div className="thumbImageContainer">
 
                             <div className="thumbImage" style={{background: "url(http://image.tmdb.org/t/p/w185/" + movie.poster_path + ")"}}/>

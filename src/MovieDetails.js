@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import axios from 'axios';
 import {Image, Navbar, Collapse, Modal, Button, Row, Col, Grid} from 'react-bootstrap';
+import ContentLoader, { Rect, Circle } from 'react-content-loader';
 import _ from 'lodash';
 import CircularProgress from './percentageCircle';
 import './App.css';
@@ -15,6 +16,7 @@ class MovieDetails extends Component {
     this.state = {
       movieDetails: [],
       creators: [],
+      genres: [],
       genres: [],
     };
   }
@@ -34,7 +36,7 @@ class MovieDetails extends Component {
      .then(items => {
        this.setState({movieDetails: items.data});
        this.setState({creators: items.data.created_by});
-       console.log(items.data.created_by);
+       this.setState({genres: items.data.genres});
      });
   }
 
@@ -47,13 +49,13 @@ class MovieDetails extends Component {
           <Col md={12}>
             <p className="movieDate">{this.state.movieDetails.first_air_date ? moment(this.state.movieDetails.first_air_date, ["YYYY-MM-DD"]).year() : ''}</p>
             <h1 className="movieTitle">{this.state.movieDetails.name}<small></small></h1>
-            <p className="movieCreators">
-              <ul>Created by {this.state.creators.map((creator, i) => {return(<li>{creator.name}</li>)})}</ul>
-            </p>
-          </Col>
-          <Col md={12}>
-            <p>{this.state.movieDetails.number_of_episodes} episodes</p>
-            <p>{this.state.movieDetails.number_of_seasons} seasons</p>
+            <div className="movieList">
+              <ul>Created by {this.state.creators.map((creator, i) => {return(<li key={i}>{creator.name}</li>)})}</ul>
+            </div>
+
+            <div className="movieList">
+              <ul>{this.state.genres.map((genre, i) => {return(<li key={i}>{genre.name}</li>)})}</ul>
+            </div>
           </Col>
           <Col md={8}>
             <Image width="100" style={{float: 'left', marginRight: '30px'}} src={"http://image.tmdb.org/t/p/w185/" + this.state.movieDetails.poster_path} rounded/>

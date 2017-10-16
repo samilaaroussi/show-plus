@@ -8,24 +8,25 @@
   border-radius: 10px;
 }
 
-.navbar-header {
-    float: left;
-    padding: 15px;
-    text-align: center;
-    width: 100%;
+.navbar-brand{
+  text-shadow: none !important;
+  position: absolute;
+  left: 50%;
+  margin-left: -70px !important;
+  display: block;
 }
-
-.navbar-brand {float:none;}
 
 .navbar-default {
   background-color: #22252a !important;
   background-image: none !important;
   border: none !important;
   border-radius: 0 !important;
-  box-shadow: none !important; }
+  box-shadow: none !important;
+}
 
 .thumb {
     padding: 10px 0;
+    width: 200px;
 }
 
 .thumbImage {
@@ -44,7 +45,6 @@
 
 .thumbImageContainer {
     position: relative;
-    width: 200px;
 }
 
 .thumbImageContainer .thumbImageOverlay {
@@ -101,12 +101,9 @@
   width: 100%;
 }
 
-.modal-open .modal {
-  overflow-y: hidden !important;
-}
-
 .thumbTitle {
   font-weight: bold;
+  overflow: hidden;
   font-size: 14px;
 }
 
@@ -135,23 +132,30 @@
   content: "";
 }
 
-.movieCreators ul {
+.movieNumber {
+  max-width: 100px;
+  border-radius: 3px;
+  border: 1px solid #fff;
+  padding: 2px 4px;
+}
+
+.movieList ul {
   margin: 0;
   padding: 0;
 }
 
-.movieCreators ul li {
+.movieList ul li {
   list-style-type: none;
   display: inline;
   margin: 0;
   padding: 0;
 }
 
-.movieCreators ul li:after {
+.movieList ul li:after {
   content: ', ';
 }
 
-.movieCreators ul li:last-child:after {
+.movieList ul li:last-child:after {
   content: "";
 }
 
