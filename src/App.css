@@ -51,16 +51,16 @@
 
 .thumbImageContainer:hover .thumbImage {
   transform: scale(.95);
-  -webkit-transition: transform 500ms ease-in-out;
-  -ms-transition: transform 500ms ease-in-out;
-  transition: transform 500ms ease-in-out;
+  -webkit-transition: transform .4s ease-in-out;
+  -ms-transition: transform .4s ease-in-out;
+  transition: transform .4s ease-in-out;
 }
 
 .thumbImageContainer .thumbImage {
   transform: scale(1);
-  -webkit-transition: transform 500ms ease-in-out;
-  -ms-transition: transform 500ms ease-in-out;
-  transition: transform 500ms ease-in-out;
+  -webkit-transition: transform .4s ease-in-out;
+  -ms-transition: transform .4s ease-in-out;
+  transition: transform .4s ease-in-out;
 }
 
 .thumbImageContainer {
@@ -77,9 +77,9 @@
   border-radius: 10px;
   box-shadow: none;
   background: linear-gradient(180deg, rgba(255,255,255,0) 40%, rgba(0,0,0,0.8) 100%);
-  -webkit-transition: all .5s ease-in-out;
-  -ms-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
   color: #FFF;
 }
 
@@ -89,9 +89,9 @@
   opacity: 1;*/
   opacity: 0;
   transform: scale(.95);
-  -webkit-transition: all .5s ease-in-out;
-  -ms-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
 }
 
 .movieDetailsContainer .movieDetailsOverlay {
@@ -228,13 +228,21 @@
   padding: 0;
 }
 
-.close {
+button.close {
   text-shadow: none;
   color: #fff;
   font-weight: normal;
   font-size: 42px;
   transition: all 0.2s ease-in-out;
   opacity: 0.5;
+}
+
+button.close:focus {
+  outline: none;
+}
+
+button.close:active {
+  outline: none;
 }
 
 a:hover, a:active, a:focus {
@@ -247,8 +255,13 @@ a:hover, a:active, a:focus {
   opacity: 0.2;
 }
 
+.modal-content {
+  border: none;
+}
+
 .movieOverview {
   text-align: justify;
+  font-size: 13px;
   height: 150px;
   overflow: hidden;
   /*white-space: nowrap;
