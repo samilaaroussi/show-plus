@@ -49,6 +49,7 @@ class MovieDetails extends Component {
         <div className="movieDetailsOverlay">
         <Modal.Header closeButton={true}>
         </Modal.Header>
+        <Modal.Body>
           <Col md={12}>
             <h1 className="movieTitle">{this.state.movieDetails.name}<small></small></h1>
             <div className="movieSubtitle">
@@ -67,7 +68,7 @@ class MovieDetails extends Component {
               <ul>CREATORS {this.state.creators.map((creator, i) => {return(<li key={i}>{creator.name}</li>)})}</ul>
             </div>
           </Col>
-
+        </Modal.Body>
         </div>
       </div>
     );

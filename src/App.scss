@@ -127,30 +127,17 @@ $secondary-color: #DAE0D4;
   }
 }
 
-.modal {
-  text-align: center;
-}
-
 .modal-dialog {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 30px);
+
   .modal-content {
-    border-radius : 11px !important;
+    border-radius: 11px !important;
     width: 100%;
   }
-}
-
-@media screen and (min-width: 768px) {
-  .modal:before {
-    display: inline-block;
-    vertical-align: middle;
-    content: " ";
-    height: 100%;
-  }
-}
-
-.modal-dialog {
-  display: inline-block;
-  text-align: left;
-  vertical-align: middle;
 }
 
 .thumbTitle {
