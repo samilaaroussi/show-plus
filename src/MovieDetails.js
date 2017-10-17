@@ -14,8 +14,9 @@ class MovieDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movieDetails: [],
-      creators: [],
+      tvDetails: [],
+      tvCreators: [],
+      tvCredits: [],
       genre: [],
     };
   }
@@ -30,43 +31,48 @@ class MovieDetails extends Component {
     const { cookies } = self.props;
     var userLang = navigator.language || navigator.userLanguage;
 
-    //filter events
-    https://api.themoviedb.org/3/tv/{tv_id}?api_key=<<api_key>>&language=en-US
-    axios.get('https://api.themoviedb.org/3/tv/' + this.props.id + '?api_key=92b418e837b833be308bbfb1fb2aca1e&language=' + userLang + '&sort_by=popularity.desc&page=1&timezone=America/New_York&include_null_first_air_dates=false')
-     .then(items => {
-       this.setState({movieDetails: items.data});
-       this.setState({creators: items.data.created_by});
-       this.setState({genre: items.data.genres[0]});
-     });
+     axios.all([
+       axios.get('https://api.themoviedb.org/3/tv/' + this.props.id + '?api_key=92b418e837b833be308bbfb1fb2aca1e&language=' + userLang),
+       axios.get('https://api.themoviedb.org/3/tv/' + this.props.id + '/credits?api_key=92b418e837b833be308bbfb1fb2aca1e&language=' + userLang)
+    ])
+    .then(axios.spread((tvDetails, tvCredits) => {
+      this.setState({tvDetails: tvDetails.data});
+      this.setState({tvCreators: tvDetails.data.created_by});
+      this.setState({genre: tvDetails.data.genres[0]});
+      this.setState({tvCredits: tvCredits.data.cast});
+      console.log(tvDetails.data.created_by);
+      console.log(tvCredits.data.cast);
+    }));
   }
 
   render() {
     return (
       <div className="movieDetailsContainer">
 
-        <div className="movieDetails" style={{background: "url(https://image.tmdb.org/t/p/w500/" + this.state.movieDetails.backdrop_path + ")"}}>
+        <div className="movieDetails" style={{background: "url(https://image.tmdb.org/t/p/w500/" + this.state.tvDetails.backdrop_path + ")"}}>
         </div>
         <div className="movieDetailsOverlay">
         <Modal.Header closeButton={true}>
         </Modal.Header>
         <Modal.Body>
           <Col md={12}>
-            <h1 className="movieTitle">{this.state.movieDetails.name}<small></small></h1>
+            <h1 className="movieTitle">{this.state.tvDetails.name}<small></small></h1>
             <div className="movieSubtitle">
-              {this.state.genre.name}
+              {this.state.genre.name + ' | '}
 
-              {this.state.movieDetails.first_air_date && this.state.movieDetails.last_air_date ?
-              ' | ' + moment(this.state.movieDetails.first_air_date, ["YYYY-MM-DD"]).year() + ' · ' +
-              moment(this.state.movieDetails.last_air_date, ["YYYY-MM-DD"]).year() : ''}
+              {this.state.tvDetails.in_production ? moment(this.state.tvDetails.first_air_date, ["YYYY-MM-DD"]).year() + ' · ' : ''}
+              {moment(this.state.tvDetails.last_air_date, ["YYYY-MM-DD"]).year()}
             </div>
           </Col>
           <Col md={12}>
-            <Image width="150" style={{float: 'left', marginRight: '30px'}} src={"http://image.tmdb.org/t/p/w185/" + this.state.movieDetails.poster_path} rounded/>
-            <p className="movieOverview">{this.state.movieDetails.overview}</p>
-            <p><a href={this.state.movieDetails.homepage}> More Infos <i className="fa fa-arrow-right"></i></a></p>
+            <Image width="150" style={{float: 'left', marginRight: '30px'}} src={"http://image.tmdb.org/t/p/w185/" + this.state.tvDetails.poster_path} rounded/>
+            <p className="movieOverview">{this.state.tvDetails.overview}</p>
             <div className="movieList">
-              <ul>CREATORS {this.state.creators.map((creator, i) => {return(<li key={i}>{creator.name}</li>)})}</ul>
+              <ul>CREATORS {this.state.tvCreators.map((creator, i) => {return(<li key={i}>{creator.name}</li>)})}</ul>
+              <ul>STARRING {this.state.tvCredits.slice(0,3).map((cast, i) => {return(<li key={i}>{cast.name}</li>)})}</ul>
+              <ul>SEASONS <li>{this.state.tvDetails.number_of_seasons}</li></ul>
             </div>
+            <p><a href={this.state.tvDetails.homepage}> More Infos <i className="fa fa-arrow-right"></i></a></p>
           </Col>
         </Modal.Body>
         </div>
