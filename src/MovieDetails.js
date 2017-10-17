@@ -37,6 +37,7 @@ class MovieDetails extends Component {
     ])
     .then(axios.spread((tvDetails, tvCredits) => {
       this.setState({tvDetails: tvDetails.data});
+      console.log(tvDetails.data);
       this.setState({tvCreators: tvDetails.data.created_by});
       this.setState({genre: tvDetails.data.genres[0]});
       this.setState({tvCredits: tvCredits.data.cast});
@@ -60,8 +61,11 @@ class MovieDetails extends Component {
             <div className="movieSubtitle">
               {this.state.genre.name + ' | '}
 
-              {this.state.tvDetails.in_production ? moment(this.state.tvDetails.first_air_date, ["YYYY-MM-DD"]).year() + ' · ' : ''}
-              {moment(this.state.tvDetails.last_air_date, ["YYYY-MM-DD"]).year()}
+              {this.state.tvDetails.number_of_seasons + ' Seasons'}
+
+              {this.state.tvDetails.first_air_date ? ' | ' + moment(this.state.tvDetails.first_air_date, ["YYYY-MM-DD"]).year() : ' | '}
+              {!this.state.tvDetails.in_production && this.state.tvDetails.last_air_date ? ' · ' + moment(this.state.tvDetails.last_air_date, ["YYYY-MM-DD"]).year() : ''}
+
             </div>
           </Col>
           <Col md={12}>
@@ -70,9 +74,8 @@ class MovieDetails extends Component {
             <div className="movieList">
               <ul>CREATORS {this.state.tvCreators.map((creator, i) => {return(<li key={i}>{creator.name}</li>)})}</ul>
               <ul>STARRING {this.state.tvCredits.slice(0,3).map((cast, i) => {return(<li key={i}>{cast.name}</li>)})}</ul>
-              <ul>SEASONS <li>{this.state.tvDetails.number_of_seasons}</li></ul>
             </div>
-            <p><a href={this.state.tvDetails.homepage}> More Infos <i className="fa fa-arrow-right"></i></a></p>
+            <p><a href={this.state.tvDetails.homepage} target="_blank"> More Infos <i className="fa fa-arrow-right"></i></a></p>
           </Col>
         </Modal.Body>
         </div>
