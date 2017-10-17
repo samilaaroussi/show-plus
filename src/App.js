@@ -54,7 +54,7 @@ class App extends Component {
     }));
 
     //filter events
-    axios.get('https://api.themoviedb.org/3/discover/tv?api_key=92b418e837b833be308bbfb1fb2aca1e&language=' + userLang + '&sort_by=popularity.desc&page=4&timezone=America/New_York&include_null_first_air_dates=false')
+    axios.get('https://api.themoviedb.org/3/discover/tv?api_key=92b418e837b833be308bbfb1fb2aca1e&language=' + userLang + '&sort_by=popularity.desc&page=1&timezone=America/New_York&include_null_first_air_dates=false')
      .then(items => {
        //console.log(items.data.results);
        this.setState({filterMovies: items.data.results});

@@ -8,37 +8,46 @@ body {
   font-family: 'Roboto', Arial;
   word-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+  -moz-osx-font-smoothing: grayscale;
+}
 
 a {
   color: #fff;
   font-weight: bold;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 a:hover {
-  color: #fff; }
+  color: #fff;
+}
 
 :root {
-  --progress-bg-color: rgba(255, 255, 255, 0.3);
-  --progress-fg-color: #fff; }
+    --progress-bg-color: rgba(255,255,255,0.3);
+    --progress-fg-color: #fff;
+}
 
 .CircularProgress-Bg,
 .CircularProgress-Fg {
-  fill: none; }
+    fill: none;
+}
 
 .CircularProgress-Bg {
-  stroke: var(--progress-bg-color); }
+    stroke: var(--progress-bg-color);
+}
 
 .CircularProgress-Fg {
-  transition: stroke-dashoffset .5s ease-in-out;
-  stroke: var(--progress-fg-color); }
+    transition: stroke-dashoffset .5s ease-in-out;
+    stroke: var(--progress-fg-color);
+}
 
 .CircularProgress-Text {
-  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 16px;
-  fill: var(--progress-fg-color);
-  transform: translate(0 50%); }
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    fill: var(--progress-fg-color);
+    transform: translate(0 50%);
+}
 
 .movieDetailsOverlay .CircularProgress-Text {
-  font-size: 64px; }
+    font-size: 64px;
+}
