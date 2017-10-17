@@ -3,7 +3,7 @@ body {
   padding-left: 0;
   padding-right: 0;
   padding-bottom: 0;
-  padding-top: 55px;
+  padding-top: 80px;
   background-image: linear-gradient(to right, #684192, #635DF8);
   font-family: 'Roboto', Arial;
   word-wrap: break-word;
@@ -15,10 +15,10 @@ a {
   color: #fff;
   font-weight: bold;
   text-decoration: none;
-}
 
-a:hover {
-  color: #fff;
+  &:hover {
+    color: #fff;
+  }
 }
 
 :root {
@@ -36,7 +36,6 @@ a:hover {
 }
 
 .CircularProgress-Fg {
-    transition: stroke-dashoffset .5s ease-in-out;
     stroke: var(--progress-fg-color);
 }
 

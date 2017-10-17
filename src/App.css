@@ -1,8 +1,10 @@
 @keyframes fadein {
   from {
-    opacity: 0; }
+    opacity: 0;
+    transform: scale(1.05); }
   to {
-    opacity: 1; } }
+    opacity: 1;
+    transform: scale(1); } }
 
 .App {
   color: #fff; }
@@ -12,12 +14,20 @@
   background-size: cover !important;
   border-radius: 10px; }
 
+.navbar {
+  min-height: 60px; }
+
 .navbar-brand {
   text-shadow: none !important;
   position: absolute;
+  height: 60px;
   left: 50%;
-  margin-left: -70px !important;
+  padding: 18px;
+  margin-left: -87px !important;
   display: block; }
+
+.navbarTop {
+  background: red; }
 
 .navbar-default {
   background-color: #22252a !important;
@@ -29,10 +39,11 @@
 .thumb {
   padding: 10px 0;
   width: 200px;
-  transform: scale(0.95);
-  -webkit-transition: all 500ms ease-in-out;
-  -ms-transition: all 500ms ease-in-out;
-  transition: all 500ms ease-in-out; }
+  /*transform: scale(.95);
+    -webkit-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    transition: all 500ms ease-in-out;*/
+  animation: .8s ease-in-out 0s 1 fadein; }
 
 .thumbImage {
   display: block;
@@ -168,7 +179,7 @@
 .movieTitle {
   font-weight: bold;
   font-size: 54px;
-  margin-bottom: 0;
+  margin-bottom: 5px;
   color: #fff; }
 
 .movieSubtitle {
