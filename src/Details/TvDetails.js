@@ -32,6 +32,7 @@ class TvDetails extends Component {
     const { cookies } = self.props;
     var userLang = navigator.language || navigator.userLanguage;
 
+    //load TV show details, credits and videos ref from TheMovieDB API
      axios.all([
        axios.get('https://api.themoviedb.org/3/tv/' + this.props.id + '?api_key=92b418e837b833be308bbfb1fb2aca1e&language=' + userLang),
        axios.get('https://api.themoviedb.org/3/tv/' + this.props.id + '/credits?api_key=92b418e837b833be308bbfb1fb2aca1e&language=' + userLang),
@@ -39,15 +40,12 @@ class TvDetails extends Component {
     ])
     .then(axios.spread((tvDetails, tvCredits, tvPreviews) => {
       this.setState({tvDetails: tvDetails.data});
-      console.log(tvDetails.data);
       this.setState({tvCreators: tvDetails.data.created_by});
       this.setState({genre: tvDetails.data.genres[0]});
       this.setState({runtime: tvDetails.data.episode_run_time[0]});
       this.setState({country: tvDetails.data.origin_country[0]});
       this.setState({tvCredits: tvCredits.data.cast});
       this.setState({tvPreview: tvPreviews.data.results[0]});
-      console.log(tvDetails.data.created_by);
-      console.log(tvCredits.data.cast);
     }));
   }
 

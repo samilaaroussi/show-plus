@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import axios from 'axios';
 import './App.css';
 import {Image, Navbar, Collapse, Modal, Button, Row, Col, Grid} from 'react-bootstrap';
@@ -18,12 +17,13 @@ class App extends Component {
       filterMovies: [],
       genres: [],
       openDetails: [],
-      type: 'movie'
+      type: 'movie' //choose the type of media : 'movie' or 'tv'
     };
 
     this.closeDetails = this.closeDetails.bind(this);
   }
 
+  //open a specific modal
   openDetails(id) {
     this.setState({
         openDetails: {
@@ -32,6 +32,7 @@ class App extends Component {
     });
   }
 
+  //close a modal
   closeDetails() {
     this.setState({openDetails: false});
   }
@@ -46,6 +47,7 @@ class App extends Component {
     const { cookies } = self.props;
     var userLang = navigator.language || navigator.userLanguage;
 
+    //load movies and tv genres list from TheMovieDB API
      axios.all([
        axios.get('https://api.themoviedb.org/3/genre/tv/list?api_key=92b418e837b833be308bbfb1fb2aca1e&language=en-US'),
        axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=92b418e837b833be308bbfb1fb2aca1e&language=en-US')
@@ -56,6 +58,7 @@ class App extends Component {
         this.setState({genres: tvGenres.concat(movieGenres)})
     }));
 
+    //load tv/movies list from TheMovieDB API
     axios.get('https://api.themoviedb.org/3/discover/' + this.state.type + '?api_key=92b418e837b833be308bbfb1fb2aca1e&language=' + userLang + '&sort_by=popularity.desc&page=&1timezone=America/New_York&include_null_first_air_dates=false')
      .then(items => {
        this.setState({filterMovies: items.data.results});
@@ -68,9 +71,11 @@ class App extends Component {
         <Header/>
         <Grid>
           <Row>
+            {/*display thumbnails, titles, genres, and scores from a list*/}
             {this.state.filterMovies.map((movie, i) => {
               let ratingColor = '';
               var title = '';
+
               if(this.state.type == 'movie') {
                 title = movie.title;
               }
@@ -80,6 +85,7 @@ class App extends Component {
 
               var circleClass = '';
 
+              {/*4 different colors level for scores: red, yellow, light green and green*/}
               if(movie.vote_average <= 6){
                 circleClass = 'CircularProgress-Fg-red';
               }
@@ -101,7 +107,6 @@ class App extends Component {
                           <a href="javascript:void(0)" onClick={this.openDetails.bind(this, i)}>
                             <div className="thumbImageOverlay">
                               <div className="rating">
-
                               {movie.vote_average ? <CircularProgress
                                 circleClass={circleClass}
                                 strokeWidth="4"

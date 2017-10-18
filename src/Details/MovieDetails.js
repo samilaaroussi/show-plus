@@ -31,6 +31,7 @@ class MovieDetails extends Component {
     const { cookies } = self.props;
     var userLang = navigator.language || navigator.userLanguage;
 
+    //load movie details, credits and videos ref from TheMovieDB API
      axios.all([
        axios.get('https://api.themoviedb.org/3/movie/' + this.props.id + '?api_key=92b418e837b833be308bbfb1fb2aca1e&language=' + userLang),
        axios.get('https://api.themoviedb.org/3/movie/' + this.props.id + '/credits?api_key=92b418e837b833be308bbfb1fb2aca1e&language=' + userLang),
@@ -38,14 +39,11 @@ class MovieDetails extends Component {
     ])
     .then(axios.spread((movieDetails, movieCredits, moviePreviews) => {
       this.setState({movieDetails: movieDetails.data});
-      console.log(movieDetails.data);
       this.setState({movieCreators: movieDetails.data.created_by});
       this.setState({genre: movieDetails.data.genres[0]});
       this.setState({movieCredits: movieCredits.data.cast});
       this.setState({country: movieDetails.data.production_countries[0]});
       this.setState({moviePreview: moviePreviews.data.results[0]});
-      console.log(movieDetails.data.created_by);
-      console.log(movieCredits.data.cast);
     }));
   }
 
