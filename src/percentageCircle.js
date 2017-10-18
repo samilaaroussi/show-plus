@@ -28,7 +28,7 @@ export default class CircularProgress extends React.Component {
                     r={radius}
                     strokeWidth={`${this.props.strokeWidth}px`} />
                 <circle
-                    className="CircularProgress-Fg"
+                    className={this.props.circleClass}
                     cx={this.props.radius}
                     cy={this.props.radius}
                     r={radius}

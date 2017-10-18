@@ -21,13 +21,18 @@ a {
   }
 }
 
+.top-buffer {
+  margin-top: 20px;
+}
+
 :root {
     --progress-bg-color: rgba(255,255,255,0.3);
     --progress-fg-color: #fff;
 }
 
 .CircularProgress-Bg,
-.CircularProgress-Fg {
+.CircularProgress-Fg, .CircularProgress-Fg-red,
+.CircularProgress-Fg-orange, .CircularProgress-Fg-green, .CircularProgress-Fg-lightGreen {
     fill: none;
 }
 
@@ -35,8 +40,20 @@ a {
     stroke: var(--progress-bg-color);
 }
 
-.CircularProgress-Fg {
-    stroke: var(--progress-fg-color);
+.CircularProgress-Fg-red {
+    stroke: #E7274B;
+}
+
+.CircularProgress-Fg-orange {
+    stroke: #F8D065;
+}
+
+.CircularProgress-Fg-green {
+    stroke: #03D496;
+}
+
+.CircularProgress-Fg-lightGreen {
+    stroke: #7CC142;
 }
 
 .CircularProgress-Text {

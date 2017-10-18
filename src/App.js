@@ -7,6 +7,8 @@ import _ from 'lodash';
 import Header from './Header';
 import CircularProgress from './percentageCircle';
 import MovieDetails from './MovieDetails';
+import TvDetails from './TvDetails';
+import InfiniteScroll from 'react-infinite-scroller';
 
 class App extends Component {
 
@@ -16,6 +18,7 @@ class App extends Component {
       filterMovies: [],
       genres: [],
       openDetails: [],
+      type: 'movie'
     };
 
     this.closeDetails = this.closeDetails.bind(this);
@@ -53,7 +56,7 @@ class App extends Component {
         this.setState({genres: tvGenres.concat(movieGenres)})
     }));
 
-    axios.get('https://api.themoviedb.org/3/discover/tv?api_key=92b418e837b833be308bbfb1fb2aca1e&language=' + userLang + '&sort_by=popularity.desc&page=&1timezone=America/New_York&include_null_first_air_dates=false')
+    axios.get('https://api.themoviedb.org/3/discover/' + this.state.type + '?api_key=92b418e837b833be308bbfb1fb2aca1e&language=' + userLang + '&sort_by=popularity.desc&page=&1timezone=America/New_York&include_null_first_air_dates=false')
      .then(items => {
        this.setState({filterMovies: items.data.results});
      });
@@ -67,6 +70,29 @@ class App extends Component {
           <Row>
             {this.state.filterMovies.map((movie, i) => {
                   let ratingColor = '';
+                  var title = '';
+                  if(this.state.type == 'movie') {
+                    title = movie.title;
+                  }
+                  else {
+                    title = movie.name;
+                  }
+
+                  var circleClass = '';
+
+                  if(movie.vote_average <= 6){
+                    circleClass = 'CircularProgress-Fg-red';
+                  }
+                  else if(movie.vote_average > 6 && movie.vote_average <= 7) {
+                    circleClass = 'CircularProgress-Fg-orange';
+                  }
+                  else if(movie.vote_average > 7 && movie.vote_average <= 8) {
+                    circleClass = 'CircularProgress-Fg-lightGreen';
+                  }
+                  else if(movie.vote_average > 8 && movie.vote_average <= 10) {
+                    circleClass = 'CircularProgress-Fg-green';
+                  }
+
                   return(
                     <Col key={i} md={3} sm={4} xs={12}>
                       <div style={{transitionDelay: '0.' + i + 's'}} className="thumb center-block">
@@ -75,7 +101,9 @@ class App extends Component {
                             <a href="javascript:void(0)" onClick={this.openDetails.bind(this, i)}>
                               <div className="thumbImageOverlay">
                                 <div className="rating">
+
                                 {movie.vote_average ? <CircularProgress
+                                  circleClass={circleClass}
                                   strokeWidth="4"
                                   radius="24"
                                   percentage={movie.vote_average*10}/> : ''}
@@ -84,7 +112,7 @@ class App extends Component {
                               </div>
                             </a>
                           </div>
-                          <div className="thumbTitle">{movie.name}</div>
+                          <div className="thumbTitle">{title}</div>
                           <div className="thumbSubtitle">
                             <ul>
                               {movie.genre_ids.slice(0, 2).map((genreId, j) => {
@@ -98,7 +126,7 @@ class App extends Component {
                           </div>
                       </div>
                       <Modal bsSize="large" show={this.state.openDetails[i] || false} onHide={this.closeDetails}>
-                        <MovieDetails id={movie.id}/>
+                        {this.state.type == 'movie' ? <MovieDetails id={movie.id}/> : <TvDetails id={movie.id}/>}
                       </Modal>
                     </Col>
                   );
