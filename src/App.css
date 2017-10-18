@@ -7,12 +7,53 @@
     transform: scale(1); } }
 
 .App {
-  color: #fff; }
+  color: #fff;
+  margin-bottom: 20px; }
+
+.no-padding {
+  padding-right: 0 !important;
+  padding-left: 0 !important; }
 
 .movieDetails {
-  height: 500px;
+  min-height: 500px;
   background-size: cover !important;
   border-radius: 10px; }
+
+.movieCast {
+  font-size: 12px;
+  padding-top: 5px;
+  padding-bottom: 5px; }
+
+.movieCast .col-md-2:first-child {
+  padding-left: 0; }
+
+.media-body {
+  vertical-align: middle;
+  overflow: initial !important; }
+
+.movieLinks .btn-default:first-child {
+  margin-left: 0; }
+
+.movieLinks .btn-default {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  text-transform: uppercase;
+  background: transparent;
+  text-shadow: none;
+  border-radius: 0;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  padding: 8px 24px;
+  margin: 0 6px;
+  transition: all 0.2s ease-in-out; }
+  .movieLinks .btn-default:first {
+    margin: 0; }
+  .movieLinks .btn-default:hover {
+    transition: all 0.2s ease-in-out;
+    color: #fff;
+    border-color: #fff; }
+
+.movieCast .col-md-3:first-child {
+  padding-left: 0; }
 
 .navbar {
   min-height: 60px; }
@@ -104,7 +145,7 @@
   border-radius: 10px;
   box-shadow: none;
   color: #DAE0D4;
-  background-color: rgba(0, 0, 0, 0.8);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.9) 100%);
   -webkit-transition: all .3s ease-in-out;
   -ms-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out; }
@@ -122,6 +163,7 @@
 .thumbTitle {
   font-weight: bold;
   overflow: hidden;
+  white-space: nowrap;
   font-size: 14px; }
 
 .thumbSubtitle {
@@ -177,10 +219,33 @@
   margin-left: 140px; }
 
 .movieTitle {
-  font-weight: bold;
-  font-size: 54px;
-  margin-bottom: 5px;
-  color: #fff; }
+  line-height: 54px; }
+
+@media (min-width: 992px) {
+  .movieTitle {
+    font-weight: bold;
+    font-size: 54px;
+    margin-bottom: 5px;
+    color: #fff; }
+  .movieName, .movieDate {
+    display: inline; }
+  .movieDate {
+    color: #DAE0D4;
+    font-size: 21px;
+    padding: 0 10px; } }
+
+@media (max-width: 991px) {
+  .movieTitle {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: #fff; }
+  .movieName, .movieDate {
+    display: block; }
+  .movieDate {
+    color: #DAE0D4;
+    font-size: 24px;
+    padding: 0; } }
 
 .movieSubtitle {
   padding-bottom: 20px; }
@@ -208,14 +273,28 @@ button.close {
 a {
   outline: none; }
 
+.flex-item {
+  display: flex;
+  align-items: center; }
+
+.flex-item img {
+  flex-grow: 0;
+  flex-shrink: 0; }
+
 .modal-content {
   border: none; }
 
 .movieOverview {
   text-align: justify;
+  display: block;
+  display: -webkit-box;
+  max-height: 160px;
   font-size: 13px;
-  height: 150px;
-  overflow: hidden; }
+  line-height: 1.4;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; }
 
 .App-header {
   background-color: #222;

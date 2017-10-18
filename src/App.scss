@@ -8,13 +8,65 @@ $secondary-color: #DAE0D4;
 
 .App {
   color: $primary-color;
+  margin-bottom: 20px;
+}
+
+.no-padding {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
 }
 
 .movieDetails {
-  height: 500px;
+  min-height: 500px;
   background-size: cover !important;
   //filter: grayscale(100%) brightness(120%) contrast(130%);
   border-radius: 10px;
+}
+
+.movieCast {
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.movieCast .col-md-2:first-child {
+  padding-left: 0;
+}
+
+.media-body {
+  vertical-align: middle;
+  overflow: initial !important;
+}
+
+.movieLinks .btn-default:first-child {
+    margin-left: 0;
+}
+
+.movieLinks .btn-default {
+  color: rgba(255,255,255,0.8);
+  font-size: 12px;
+  text-transform: uppercase;
+  background: transparent;
+  text-shadow: none;
+  border-radius: 0;
+  border: 2px solid rgba(255,255,255,0.8);
+  padding: 8px 24px;
+  margin: 0 6px;
+  transition: all 0.2s ease-in-out;
+
+  &:first {
+    margin: 0;
+  }
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    color: $primary-color;
+    border-color: $primary-color;
+  }
+}
+
+.movieCast .col-md-3:first-child {
+  padding-left: 0;
 }
 
 .navbar {
@@ -131,7 +183,7 @@ $secondary-color: #DAE0D4;
     border-radius: 10px;
     box-shadow: none;
     color: $secondary-color;
-    background-color: rgba(0,0,0, .8);
+    background: linear-gradient(180deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,0.9) 100%);
     -webkit-transition: all .3s ease-in-out;
     -ms-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
@@ -154,6 +206,7 @@ $secondary-color: #DAE0D4;
 .thumbTitle {
   font-weight: bold;
   overflow: hidden;
+  white-space: nowrap;
   font-size: 14px;
 }
 
@@ -233,10 +286,45 @@ $secondary-color: #DAE0D4;
 }
 
 .movieTitle {
-  font-weight: bold;
-  font-size: 54px;
-  margin-bottom: 5px;
-  color: $primary-color;
+  line-height: 54px;
+}
+
+@media (min-width: 992px) {
+  .movieTitle {
+    font-weight: bold;
+    font-size: 54px;
+    margin-bottom: 5px;
+    color: $primary-color;
+  }
+
+  .movieName, .movieDate {
+    display: inline;
+  }
+
+  .movieDate {
+    color: $secondary-color;
+    font-size: 21px;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 991px){
+  .movieTitle {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: $primary-color;
+  }
+
+  .movieName, .movieDate {
+    display: block;
+  }
+
+  .movieDate {
+    color: $secondary-color;
+    font-size: 24px;
+    padding: 0;
+  }
 }
 
 .movieSubtitle {
@@ -274,15 +362,30 @@ a {
   outline: none;
 }
 
+.flex-item {
+    display:flex;
+    align-items: center;
+}
+.flex-item img{
+    flex-grow:0;
+    flex-shrink:0;
+}
+
 .modal-content {
   border: none;
 }
 
 .movieOverview {
   text-align: justify;
+  display: block;
+  display: -webkit-box;
+  max-height: 160px;
   font-size: 13px;
-  height: 150px;
+  line-height: 1.4;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .App-header {
