@@ -29,12 +29,11 @@ J'ai listé ci-dessous les outils principaux que j'ai utilisé pour ce projet :
 ## Configuration
 
 Pour changer le type de contenu ou le numéro de la page chargée à l'écran, ouvrez *src/App.js* et modifiez les paramètres suivants :
-```json
+
     this.state = {
       type: 'movie', //'movie' ou 'tv
       pageNumber: '1' //numéro de la page
     };
-  ```
 
 ## Lancer l'application :rocket:
 
