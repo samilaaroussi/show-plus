@@ -4,16 +4,17 @@ Show+ est une petite application React permettant d'afficher une liste de films 
 
 ![Homepage](https://i.imgur.com/EtW2Dzr.jpg)
 
-## Cahier des charges
+## Cahier des charges :construction:
 
   - Afficher une liste de films ou de séries
   - **Bonus:** pouvoir consulter les détails d'un film ou d'une série
 
-## Technologies utilisées
+## Outils
 
 J'ai listé ci-dessous les outils principaux que j'ai utilisé pour ce projet :
 
 * [ReactJS] - La vedette de cet exercice !
+* [TheMovieDB](https://developers.themoviedb.org/3/) - L'API utilisé pour récupérer les informations relatives aux oeuvres
 * [Atom] - Mon éditeur de code favoris
 * [Create React App] - Facilite la création d'applications React
 * [Axios] - Requêtes HTTP asynchrones vers l'API
@@ -34,7 +35,7 @@ Pour changer le type de contenu ou le numéro de la page chargée à l'écran, o
       pageNumber: '1' //numéro de la page
     };
 
-## Lancer l'application
+## Lancer l'application :rocket:
 
 Pour lancer le serveur de développement et tester l'application, entrez les commandes suivantes dans votre terminal :
 
@@ -43,7 +44,7 @@ $ cd show-plus
 $ npm start
 ```
 
-# Conception & Expérience Utilisateur
+# Conception & Expérience Utilisateur :art:
 
 Pour cette application React, j'ai eu plusieurs axes de réflexion sur l'expérience utilisateur, avant et pendant le développement. Dans un premier temps, j'ai analysé chaque point du cahier de charges pour y répondre au mieux.
 
