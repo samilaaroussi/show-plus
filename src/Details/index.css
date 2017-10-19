@@ -9,6 +9,7 @@
   justify-content: center;
   height: calc(100vh - 30px); }
   .modal-dialog .modal-content {
+    border: none;
     border-radius: 11px !important;
     width: 100%; }
 

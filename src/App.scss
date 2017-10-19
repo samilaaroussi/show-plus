@@ -11,6 +11,34 @@ $secondary-color: #DAE0D4;
   margin-bottom: 20px;
 }
 
+.App-header {
+  background-color: #222;
+  height: 55px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+a {
+  outline: none;
+}
+
+.flex-item {
+    display:flex;
+    align-items: center;
+}
+.flex-item img{
+    flex-grow:0;
+    flex-shrink:0;
+}
+
 .no-padding {
     padding-right: 0 !important;
     padding-left: 0 !important;
@@ -159,34 +187,40 @@ $secondary-color: #DAE0D4;
   margin-left: 140px;
 }
 
-a {
-  outline: none;
+.circularProgressBg,
+.circularProgressFg, .circularProgressFgRed,
+.circularProgressFgOrange, .circularProgressFgGreen, .circularProgressFgLightGreen {
+    fill: none;
 }
 
-.flex-item {
-    display:flex;
-    align-items: center;
-}
-.flex-item img{
-    flex-grow:0;
-    flex-shrink:0;
+.circularProgressBg {
+    stroke: var(--progress-bg-color);
 }
 
-.modal-content {
-  border: none;
+.circularProgressFgRed {
+    stroke: #E7274B;
 }
 
-.App-header {
-  background-color: #222;
-  height: 55px;
-  padding: 20px;
-  color: white;
+.circularProgressFgOrange {
+    stroke: #F8D065;
 }
 
-.App-title {
-  font-size: 1.5em;
+.circularProgressFgGreen {
+    stroke: #03D496;
 }
 
-.App-intro {
-  font-size: large;
+.circularProgressFgLightGreen {
+    stroke: #7CC142;
+}
+
+.circularProgressText {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    fill: var(--progress-fg-color);
+    transform: translate(0 50%);
+}
+
+.movieDetailsOverlay .circularProgressText {
+    font-size: 64px;
 }
