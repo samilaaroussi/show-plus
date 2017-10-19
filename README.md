@@ -2,12 +2,12 @@
 
 Show+ est une petite application permettant d'afficher une liste de films ou de séries et consulter leur fiches via une interface soignée.
 
-# Cahier des charges
+## Cahier des charges
 
   - Afficher une liste de films ou de séries
   - **Bonus:** pouvoir consulter les détails d'un film ou d'une série
 
-# Technologies utilisées
+## Technologies utilisées
 
 J'ai listé ci-dessous les outils principaux que j'ai utilisé pour ce projet :
 
@@ -23,9 +23,9 @@ J'ai listé ci-dessous les outils principaux que j'ai utilisé pour ce projet :
 
 Mais aussi la police d'écriture Roboto et le pack d'icône [Font Awesome][Font Awesome].
 
-# Test
+## Lancer l'application
 
-Pour lancer le serveur de test et lancer l'application, entrez les commandes suivantes dans votre terminal :
+Pour lancer le serveur de développement et tester l'application, entrez les commandes suivantes dans votre terminal :
 
 ```sh
 $ cd show-plus
