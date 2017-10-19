@@ -49,12 +49,14 @@ class App extends Component {
         axios.get(
           'https://api.themoviedb.org/3/genre/tv/list?api_key=' +
             process.env.REACT_APP_API_KEY +
-            '&language=en-US'
+            '&language=' +
+            userLang
         ),
         axios.get(
           'https://api.themoviedb.org/3/genre/movie/list?api_key=' +
             process.env.REACT_APP_API_KEY +
-            '&language=en-US'
+            '&language=' +
+            userLang
         )
       ])
       .then(

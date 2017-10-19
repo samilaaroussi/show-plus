@@ -1,27 +1,64 @@
 import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import axios from 'axios';
-import './App.css';
-import {
-  Image,
-  Navbar,
-  Collapse,
-  Modal,
-  Button,
-  Row,
-  Col,
-  Grid
-} from 'react-bootstrap';
-import _ from 'lodash';
 import Header from './Header';
-import CircularProgress from './percentageCircle';
-import MovieDetails from './MovieDetails';
-import TvDetails from './TvDetails';
-import InfiniteScroll from 'react-infinite-scroller';
+import MovieDetails from './Details/MovieDetails';
+import TvDetails from './Details/TvDetails';
 import App from './App';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+var userLang = navigator.language || navigator.userLanguage;
+
+test('testing API', () => {
+  return axios
+    .all([
+      axios.get(
+        'https://api.themoviedb.org/3/movie/114?api_key=' +
+          process.env.REACT_APP_API_KEY +
+          '&language=' +
+          userLang
+      ),
+      axios.get(
+        'https://api.themoviedb.org/3/movie/114/credits?api_key=' +
+          process.env.REACT_APP_API_KEY +
+          '&language=' +
+          userLang
+      ),
+      axios.get(
+        'https://api.themoviedb.org/3/movie/114/videos?api_key=' +
+          process.env.REACT_APP_API_KEY +
+          '&language=' +
+          userLang
+      ),
+      axios.get(
+        'https://api.themoviedb.org/3/tv/114?api_key=' +
+          process.env.REACT_APP_API_KEY +
+          '&language=' +
+          userLang
+      ),
+      axios.get(
+        'https://api.themoviedb.org/3/tv/114/credits?api_key=' +
+          process.env.REACT_APP_API_KEY +
+          '&language=' +
+          userLang
+      ),
+      axios.get(
+        'https://api.themoviedb.org/3/tv/114/videos?api_key=' +
+          process.env.REACT_APP_API_KEY +
+          '&language=' +
+          userLang
+      ),
+      axios.get(
+        'https://api.themoviedb.org/3/genre/tv/list?api_key=' +
+          process.env.REACT_APP_API_KEY +
+          '&language=en-US'
+      ),
+      axios.get(
+        'https://api.themoviedb.org/3/genre/movie/list?api_key=' +
+          process.env.REACT_APP_API_KEY +
+          '&language=en-US'
+      )
+    ])
+    .then(
+      console.log('API test done')
+    )
 });
