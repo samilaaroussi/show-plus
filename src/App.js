@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import {Image, Navbar, Collapse, Modal, Button, Row, Col, Grid} from 'react-bootstrap';
+import ContentLoader, { Rect, Circle } from 'react-content-loader';
 import _ from 'lodash';
 import Header from './Header';
 import CircularProgress from './percentageCircle';
