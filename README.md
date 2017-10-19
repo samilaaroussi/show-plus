@@ -20,10 +20,10 @@ J'ai listé ci-dessous les outils principaux que j'ai utilisé pour ce projet :
 * [Sass] - Préprocesseur CSS (j'utilise la syntaxe SCSS)
 * [React Bootstrap] - Version de Bootstrap pour React
 * [MomentJS] - Manipulation des dates de l'API
-* [PercentageCircle] - Composant un peu modifié pour convenir à mes besoins
 * [Lodash] - Manipulation avancée des arrays et objets
+* [PercentageCircle] - Composant un peu modifié pour convenir à mes besoins
 
-Mais aussi la police d'écriture Roboto et le pack d'icône [Font Awesome][Font Awesome].
+...mais également la police d'écriture Roboto et le célèbre pack d'icône [Font Awesome][Font Awesome].
 
 ## Configuration
 
