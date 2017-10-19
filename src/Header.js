@@ -14,16 +14,13 @@ class Header extends Component {
 
   render() {
     return (
-      <Affix container={this}>
-        <Navbar className="navbar-default navbar-fixed-top">
+        <Navbar className="navbar-default">
           <Navbar.Header>
             <Navbar.Brand>
               <Image src="/img/logo2.png" className="App-logo" alt="logo"/>
             </Navbar.Brand>
           </Navbar.Header>
         </Navbar>
-      </Affix>
-
     );
   }
 }
