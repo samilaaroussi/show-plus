@@ -187,6 +187,12 @@ a {
   margin-left: 140px;
 }
 
+
+:root {
+    --progress-bg-color: rgba(255,255,255,0.3);
+    --progress-fg-color: #fff;
+}
+
 .circularProgressBg,
 .circularProgressFg, .circularProgressFgRed,
 .circularProgressFgOrange, .circularProgressFgGreen, .circularProgressFgLightGreen {
