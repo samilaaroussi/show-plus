@@ -17,7 +17,7 @@ class App extends Component {
       filterMovies: [],
       genres: [],
       openDetails: [],
-      type: 'tv', //type of media : 'movie' or 'tv'
+      type: 'movie', //type of media : 'movie' or 'tv'
       pageNumber: '1' //page number of the discover movie/tv list
     };
 
@@ -88,16 +88,16 @@ class App extends Component {
 
               {/*4 different colors level for scores: red, yellow, light green and green*/}
               if(movie.vote_average <= 6){
-                circleClass = 'CircularProgress-Fg-red';
+                circleClass = 'circularProgressFgRed';
               }
               else if(movie.vote_average > 6 && movie.vote_average <= 7) {
-                circleClass = 'CircularProgress-Fg-orange';
+                circleClass = 'circularProgressFgOrange';
               }
               else if(movie.vote_average > 7 && movie.vote_average <= 8) {
-                circleClass = 'CircularProgress-Fg-lightGreen';
+                circleClass = 'circularProgressFgLightGreen';
               }
               else if(movie.vote_average > 8 && movie.vote_average <= 10) {
-                circleClass = 'CircularProgress-Fg-green';
+                circleClass = 'circularProgressFgGreen';
               }
 
               return(

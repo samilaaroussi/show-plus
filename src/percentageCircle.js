@@ -17,12 +17,12 @@ export default class CircularProgress extends React.Component {
 
         return (
             <svg
-                className="CircularProgress"
+                className="circularProgress"
                 width={this.props.radius * 2}
                 height={this.props.radius * 2}
                 viewBox={viewBox}>
                 <circle
-                    className="CircularProgress-Bg"
+                    className="circularProgressBg"
                     cx={this.props.radius}
                     cy={this.props.radius}
                     r={radius}
@@ -38,7 +38,7 @@ export default class CircularProgress extends React.Component {
                         strokeDashoffset: dashOffset
                     }} />
                 <text
-                    className="CircularProgress-Text"
+                    className="circularProgressText"
                     x={this.props.radius}
                     y={this.props.radius}
                     dy=".4em"

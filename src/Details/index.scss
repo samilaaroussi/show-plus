@@ -120,14 +120,11 @@ button.close {
   }
 }
 
-.movieTitle {
-  line-height: 54px;
-}
-
 @media (min-width: 992px) {
   .movieTitle {
     font-weight: bold;
     font-size: 54px;
+    line-height: normal;
     margin-bottom: 5px;
     color: $primary-color;
   }

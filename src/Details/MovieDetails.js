@@ -4,6 +4,7 @@ import {Media, Image, Navbar, Collapse, Modal, Button, Row, Col, Grid} from 'rea
 import _ from 'lodash';
 import CircularProgress from '../percentageCircle';
 import '../App.css';
+import './index.css';
 var moment = require('moment');
 moment().format();
 
@@ -48,57 +49,85 @@ class MovieDetails extends Component {
   }
 
   render() {
+
+    var bg='';
+
+    if(this.state.movieDetails.backdrop_path === undefined || this.state.movieDetails.backdrop_path === null) {
+      bg = '#333';
+    }
+    else {
+      bg = "url(https://image.tmdb.org/t/p/w500/" + this.state.movieDetails.backdrop_path + ')';
+    }
+
     return (
       <div className="movieDetailsContainer">
-        <div className="movieDetails" style={{background: "url(https://image.tmdb.org/t/p/w500/" + this.state.movieDetails.backdrop_path + ")"}}>
+        <div className="movieDetails" style={{background: bg}}>
         </div>
         <div className="movieDetailsOverlay">
         <Modal.Header closeButton={true}>
         </Modal.Header>
-          <Col md={12}>
-            <div className="movieTitle">
-              <span className="movieName">
-                {this.state.movieDetails.title}
-              </span>
-              <span className="movieDate">
-                {this.state.movieDetails.release_date ? moment(this.state.movieDetails.release_date, ["YYYY-MM-DD"]).year() : ''}
-              </span>
-            </div>
-            <div className="movieSubtitle">
-              {this.state.country.iso_3166_1 + '  ·  '}
-              {this.state.genre.name + '  ·  '}
-              <i className="fa fa-clock-o"></i>
-              {' ' + this.state.movieDetails.runtime + ' min' }
-            </div>
-          </Col>
-          <Col md={8}>
-            <p className="movieOverview">{this.state.movieDetails.overview}</p>
-          </Col>
-          <Col md={4} sm={12} xs={12}>
-          </Col>
-          <Col md={12} xsHidden={true} className="movieCast">
-            {this.state.movieCredits.slice(0,3).map((cast, i) => {
-              return(
-                <Col md={2} sm={4} key={i}>
-                  <div className="flex-item">
-                    <Media>
-                      <Media.Left align="middle">
-                        <div style={{background: "url(https://image.tmdb.org/t/p/w500/" + cast.profile_path + "), url(/img/default-avatar.jpg) center" , backgroundSize: 'cover', width: '50px', height: '50px', borderRadius: '25px'}}></div>
-                      </Media.Left>
-                      <Media.Body>
-                        {cast.name}
-                      </Media.Body>
-                    </Media>
-                  </div>
-                </Col>
-              )
-            })}
-            </Col>
-            <Col className='top-buffer' md={12}>
-              <div className="movieLinks">
-                {this.state.moviePreview ? <Button href={'https://www.youtube.com/watch?v=' + this.state.moviePreview.key} target="_blank"><i className="fa fa-play-circle-o"></i> Watch Preview</Button> : ''}
+          <Row>
+            <Col md={12}>
+              <div className="movieTitle">
+                <span className="movieName">
+                  {this.state.movieDetails.title}
+                </span>
+                <span className="movieDate">
+                  {this.state.movieDetails.release_date ? moment(this.state.movieDetails.release_date, ["YYYY-MM-DD"]).year() : ''}
+                </span>
+              </div>
+              <div className="movieSubtitle">
+                {this.state.country.iso_3166_1 + '  ·  '}
+                {this.state.genre.name + '  ·  '}
+                <i className="fa fa-clock-o"></i>
+                {' ' + this.state.movieDetails.runtime + ' min' }
               </div>
             </Col>
+          </Row>
+          <Row>
+            <Col md={8}>
+              <p className="movieOverview">{this.state.movieDetails.overview}</p>
+            </Col>
+            <Col md={4} sm={12} xs={12}>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={12} xsHidden={true} className="movieCast">
+              {this.state.movieCredits.slice(0,3).map((cast, i) => {
+
+                var avatar = '';
+
+                if(cast.profile_path === null) {
+                  avatar = '/img/default-avatar.jpg';
+                }
+                else {
+                  avatar = "https://image.tmdb.org/t/p/w500/" + cast.profile_path;
+                }
+
+                return(
+                  <Col md={2} sm={4} key={i}>
+                    <div className="flex-item">
+                      <Media>
+                        <Media.Left align="middle">
+                          <div style={{background: "url(" + avatar + ") center" , backgroundSize: 'cover', width: '50px', height: '50px', borderRadius: '25px'}}></div>
+                        </Media.Left>
+                        <Media.Body>
+                          {cast.name}
+                        </Media.Body>
+                      </Media>
+                    </div>
+                  </Col>
+                )
+              })}
+              </Col>
+            </Row>
+            <Row className='topBuffer'>
+              <Col md={12}>
+                <div className="movieLinks">
+                  {this.state.moviePreview ? <Button href={'https://www.youtube.com/watch?v=' + this.state.moviePreview.key} target="_blank"><i className="fa fa-play-circle-o"></i> Watch Preview</Button> : ''}
+                </div>
+              </Col>
+            </Row>
         </div>
       </div>
     );

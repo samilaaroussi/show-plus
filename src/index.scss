@@ -21,7 +21,7 @@ a {
   }
 }
 
-.top-buffer {
+.topBuffer {
   margin-top: 20px;
 }
 
@@ -30,33 +30,33 @@ a {
     --progress-fg-color: #fff;
 }
 
-.CircularProgress-Bg,
-.CircularProgress-Fg, .CircularProgress-Fg-red,
-.CircularProgress-Fg-orange, .CircularProgress-Fg-green, .CircularProgress-Fg-lightGreen {
+.circularProgressBg,
+.circularProgressFg, .circularProgressFgRed,
+.circularProgressFgOrange, .circularProgressFgGreen, .circularProgressFgLightGreen {
     fill: none;
 }
 
-.CircularProgress-Bg {
+.circularProgressBg {
     stroke: var(--progress-bg-color);
 }
 
-.CircularProgress-Fg-red {
+.circularProgressFgRed {
     stroke: #E7274B;
 }
 
-.CircularProgress-Fg-orange {
+.circularProgressFgOrange {
     stroke: #F8D065;
 }
 
-.CircularProgress-Fg-green {
+.circularProgressFgGreen {
     stroke: #03D496;
 }
 
-.CircularProgress-Fg-lightGreen {
+.circularProgressFgLightGreen {
     stroke: #7CC142;
 }
 
-.CircularProgress-Text {
+.circularProgressText {
     font-family: sans-serif;
     font-weight: bold;
     font-size: 16px;
@@ -64,6 +64,6 @@ a {
     transform: translate(0 50%);
 }
 
-.movieDetailsOverlay .CircularProgress-Text {
+.movieDetailsOverlay .circularProgressText {
     font-size: 64px;
 }
