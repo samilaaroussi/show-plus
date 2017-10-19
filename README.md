@@ -1,7 +1,5 @@
 # Show+
 
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
-
 Show+ est une petite application permettant d'afficher une liste de films ou de séries et consulter leur fiches via une interface soignée.
 
 # Cahier des charges
