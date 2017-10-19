@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {
-  Media,
-  Modal,
-  Button,
-  Row,
-  Col
-} from 'react-bootstrap';
+import { Media, Modal, Button, Row, Col } from 'react-bootstrap';
 import '../App.css';
 import './index.css';
 
@@ -40,19 +34,25 @@ class MovieDetails extends Component {
         axios.get(
           'https://api.themoviedb.org/3/movie/' +
             this.props.id +
-            '?api_key=92b418e837b833be308bbfb1fb2aca1e&language=' +
+            '?api_key=' +
+            process.env.REACT_APP_API_KEY +
+            '&language=' +
             userLang
         ),
         axios.get(
           'https://api.themoviedb.org/3/movie/' +
             this.props.id +
-            '/credits?api_key=92b418e837b833be308bbfb1fb2aca1e&language=' +
+            '/credits?api_key=' +
+            process.env.REACT_APP_API_KEY +
+            '&language=' +
             userLang
         ),
         axios.get(
           'https://api.themoviedb.org/3/movie/' +
             this.props.id +
-            '/videos?api_key=92b418e837b833be308bbfb1fb2aca1e&language=' +
+            '/videos?api_key=' +
+            process.env.REACT_APP_API_KEY +
+            '&language=' +
             userLang
         )
       ])

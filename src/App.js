@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
-import {
-  Modal,
-  Row,
-  Col,
-  Grid
-} from 'react-bootstrap';
+import { Modal, Row, Col, Grid } from 'react-bootstrap';
 import _ from 'lodash';
 import Header from './Header';
 import CircularProgress from './percentageCircle';
@@ -52,10 +47,14 @@ class App extends Component {
     axios
       .all([
         axios.get(
-          'https://api.themoviedb.org/3/genre/tv/list?api_key=92b418e837b833be308bbfb1fb2aca1e&language=en-US'
+          'https://api.themoviedb.org/3/genre/tv/list?api_key=' +
+            process.env.REACT_APP_API_KEY +
+            '&language=en-US'
         ),
         axios.get(
-          'https://api.themoviedb.org/3/genre/movie/list?api_key=92b418e837b833be308bbfb1fb2aca1e&language=en-US'
+          'https://api.themoviedb.org/3/genre/movie/list?api_key=' +
+            process.env.REACT_APP_API_KEY +
+            '&language=en-US'
         )
       ])
       .then(
@@ -71,7 +70,9 @@ class App extends Component {
       .get(
         'https://api.themoviedb.org/3/discover/' +
           this.state.type +
-          '?api_key=92b418e837b833be308bbfb1fb2aca1e&language=' +
+          '?api_key=' +
+          process.env.REACT_APP_API_KEY +
+          '&language=' +
           userLang +
           '&sort_by=popularity.desc&page=' +
           this.state.pageNumber +

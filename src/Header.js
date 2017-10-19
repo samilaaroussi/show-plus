@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {
-  Image,
-  Navbar
-} from 'react-bootstrap';
+import { Image, Navbar } from 'react-bootstrap';
 import './App.css';
 
 class Header extends Component {
@@ -16,7 +13,7 @@ class Header extends Component {
       <Navbar className="navbar-default">
         <Navbar.Header>
           <Navbar.Brand>
-            <Image src="/img/logo2.png" className="App-logo" alt="logo" />
+            <Image src="/img/logo.png" className="App-logo" alt="logo" />
           </Navbar.Brand>
         </Navbar.Header>
       </Navbar>
