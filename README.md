@@ -37,7 +37,11 @@ Pour changer le type de contenu ou le numéro de la page chargée à l'écran, o
 
 ## Lancer l'application :rocket:
 
-Pour lancer le serveur de développement et tester l'application, entrez les commandes suivantes dans votre terminal :
+À la racine du projet, renommez le fichier *.env.exemple* en *.env*. Ouvrez le fichier puis entrez votre clé API TMDB comme ci-dessous :
+  
+*REACT_APP_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+
+Enfin, pour lancer le serveur de développement et tester l'application, entrez les commandes suivantes dans votre terminal :
 
 ```sh
 $ cd show-plus
