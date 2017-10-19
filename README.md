@@ -2,7 +2,7 @@
 
 Show+ est une petite application React permettant d'afficher une liste de films ou de séries et consulter leur fiches via une interface soignée.
 
-![Homepage](https://i.imgur.com/EtW2Dzr.jpg)
+![Homepage](https://i.imgur.com/mLfxqqm.jpg)
 
 ## Cahier des charges :construction:
 
@@ -64,7 +64,7 @@ Chaque vignette contient les 4 informations principales suivantes : une illustra
 
 Au passage de la souris sur chacune des vignettes, je fais disparaître l'overlay pour mettre en avant l'illustration de l'oeuvre et, comme pour simuler une pression physique sur l'élement, j'applique un zoom arrière à l'illustration. Un clic sur chaque vignette ouvre un pop-up contenant des détails sur l'oeuvre. Par rapport à une page indépendante, j'ai trouvé qu'un pop-up permettait à l'utilisateur de plus facilement switcher entre les oeuvres. Une fois le pop-up affiché, si les données ne sont pas encore prêtent à être afficher, j'affiche un message indiquant à l'utilisateur leur chargement. J'ai aussi choisi d'afficher plus de détails sur une oeuvre pour un grand écran qu'un périphérique mobile. La raison est simple : éviter à l'utilisateur de scroller sur le site en lui donnant les informations essentielles dont il a besoin.
 
-![Movie Details](https://i.imgur.com/WyROWEj.jpg)
+![Movie Details](https://i.imgur.com/617J2QX.jpg)
 
 Au chargement global de la page, j'ai choisi de faire apparaître toutes les vignettes en augmentant progressivement taille et opacité. Le but étant de mettre en valeur ces éléments dès le début de la navigation, grâce aux animations CSS3 que j'ai utilisées tout au long de ce projet.
 
