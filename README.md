@@ -58,11 +58,11 @@ Chaque vignette contient les 4 informations principales suivantes : une illustra
 - 71 → 80 : Vert clair
 - 81 → 100 : Vert
 
-Au passage de la souris sur chacune des vignettes, je fais disparaître l'overlay pour mettre en avant l'illustration de l'oeuvre et, comme pour simuler une pression physique sur l'élement, j'applique un zoom arrière à l'illustration. Un clic sur chaque vignette ouvre un pop-up contenant des détails sur l'oeuvre. Par rapport à une page indépendante, j'ai trouvé qu'un pop-up permettait à l'utilisateur de plus facilement switcher entre les oeuvres. Une fois le pop-up affiché, si les données ne sont pas encore prêtent à être afficher, j'affiche un message indiquant à l'utilisateur leur chargement.
+Au passage de la souris sur chacune des vignettes, je fais disparaître l'overlay pour mettre en avant l'illustration de l'oeuvre et, comme pour simuler une pression physique sur l'élement, j'applique un zoom arrière à l'illustration. Un clic sur chaque vignette ouvre un pop-up contenant des détails sur l'oeuvre. Par rapport à une page indépendante, j'ai trouvé qu'un pop-up permettait à l'utilisateur de plus facilement switcher entre les oeuvres. Une fois le pop-up affiché, si les données ne sont pas encore prêtent à être afficher, j'affiche un message indiquant à l'utilisateur leur chargement. J'ai aussi choisi d'afficher plus de détails sur une oeuvre pour un grand écran qu'un périphérique mobile. La raison est simple : éviter à l'utilisateur de scroller sur le site en lui donnant les informations essentielles dont il a besoin.
 
 ![Movie Details](https://i.imgur.com/WyROWEj.jpg)
 
-Au chargement global de la page, j'ai également choisi de faire apparaître toutes les vignettes en augmentant progressivement taille et opacité. Le but étant de mettre en valeur ces éléments dès le début de la navigation. J'ai effectué l'ensemble de ces animations grâce à CSS3.
+Au chargement global de la page, j'ai choisi de faire apparaître toutes les vignettes en augmentant progressivement taille et opacité. Le but étant de mettre en valeur ces éléments dès le début de la navigation, grâce aux animations CSS3 que j'ai utilisées tout au long de ce projet.
 
 Licence
 ----
