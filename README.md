@@ -53,10 +53,10 @@ J'ai commencé par dessiner un prototype low-res sur papier pour avoir une idée
 Pour servir de base à mon développement, j'ai apposé une grille Bootstrap pour mettre en place une application responsive. L'ensemble se présente sous forme d'une galerie de vignettes, en 4 colonnes sur un grand écran. Des vignettes pas trop petites pour que l'on puisse distinguer rapidement leurs informations, mais pas non plus trop grandes pour avoir apercevoir un maximum d'oeuvres sur une même page.
 
 Chaque vignette contient les 4 informations principales suivantes : une illustration, le titre de l'oeuvre, le ou les genre(s) ainsi qu'une note moyenne des utilisateurs de TMDB. J'ai choisi de placer la note en overlay par-dessus l'illustration. Pour renforcer sa visibilité, j'ai mis en place le code couleur suivant, pour des notes allant de 0 à 100 :
-- 0 -> 60 : Rouge
-- 61 -> 70 : Jaune
-- 71 -> 80 : Vert clair
-- 81 -> 100 : Vert
+- 0 → 60 : Rouge
+- 61 → 70 : Jaune
+- 71 → 80 : Vert clair
+- 81 → 100 : Vert
 
 Au passage de la souris sur chacune des vignettes, je fais disparaître l'overlay pour mettre en avant l'illustration de l'oeuvre et, comme pour simuler une pression physique sur l'élement, j'applique un zoom arrière à l'illustration. Un clic sur chaque vignette ouvre un pop-up contenant des détails sur l'oeuvre. Par rapport à une page indépendante, j'ai trouvé qu'un pop-up permettait à l'utilisateur de plus facilement switcher entre les oeuvres. Une fois le pop-up affiché, si les données ne sont pas encore prêtent à être afficher, j'affiche un message indiquant à l'utilisateur leur chargement.
 
