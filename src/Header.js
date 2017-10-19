@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import Affix from 'react-overlays/lib/Affix';
 import {
   Image,
-  Navbar,
-  Collapse,
-  Modal,
-  Button,
-  Row,
-  Col,
-  Grid
+  Navbar
 } from 'react-bootstrap';
 import './App.css';
 

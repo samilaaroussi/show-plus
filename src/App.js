@@ -2,22 +2,16 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import {
-  Image,
-  Navbar,
-  Collapse,
   Modal,
-  Button,
   Row,
   Col,
   Grid
 } from 'react-bootstrap';
-import ContentLoader, { Rect, Circle } from 'react-content-loader';
 import _ from 'lodash';
 import Header from './Header';
 import CircularProgress from './percentageCircle';
 import MovieDetails from './Details/MovieDetails';
 import TvDetails from './Details/TvDetails';
-import InfiniteScroll from 'react-infinite-scroller';
 
 class App extends Component {
   constructor(props) {
@@ -52,8 +46,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    var self = this;
-    const { cookies } = self.props;
     var userLang = navigator.language || navigator.userLanguage;
 
     //load movies and tv genres list from TheMovieDB API
@@ -68,9 +60,9 @@ class App extends Component {
       ])
       .then(
         axios.spread((tvGenres, movieGenres) => {
-          var tvGenres = tvGenres.data.genres;
-          var movieGenres = movieGenres.data.genres;
-          this.setState({ genres: tvGenres.concat(movieGenres) });
+          var tvG = tvGenres.data.genres;
+          var movieG = movieGenres.data.genres;
+          this.setState({ genres: tvG.concat(movieG) });
         })
       );
 
@@ -98,10 +90,9 @@ class App extends Component {
           <Row>
             {/*display thumbnails, titles, genres, and scores from a list*/}
             {this.state.filterMovies.map((movie, i) => {
-              let ratingColor = '';
               var title = '';
 
-              if (this.state.type == 'movie') {
+              if (this.state.type === 'movie') {
                 title = movie.title;
               } else {
                 title = movie.name;
@@ -184,7 +175,7 @@ class App extends Component {
                     show={this.state.openDetails[i] || false}
                     onHide={this.closeDetails}
                   >
-                    {this.state.type == 'movie' ? (
+                    {this.state.type === 'movie' ? (
                       <MovieDetails id={movie.id} />
                     ) : (
                       <TvDetails id={movie.id} />

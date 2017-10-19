@@ -2,20 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {
   Media,
-  Image,
-  Navbar,
-  Collapse,
   Modal,
   Button,
   Row,
-  Col,
-  Grid
+  Col
 } from 'react-bootstrap';
-import ContentLoader, { Rect, Circle } from 'react-content-loader';
-import _ from 'lodash';
-import CircularProgress from '../percentageCircle';
 import '../App.css';
 import './index.css';
+
 var moment = require('moment');
 moment().format();
 
@@ -38,8 +32,6 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
-    var self = this;
-    const { cookies } = self.props;
     var userLang = navigator.language || navigator.userLanguage;
 
     //load movie details, credits and videos ref from TheMovieDB API
