@@ -17,7 +17,8 @@ class App extends Component {
       filterMovies: [],
       genres: [],
       openDetails: [],
-      type: 'movie' //choose the type of media : 'movie' or 'tv'
+      type: 'tv', //type of media : 'movie' or 'tv'
+      pageNumber: '1' //page number of the discover movie/tv list
     };
 
     this.closeDetails = this.closeDetails.bind(this);
@@ -59,7 +60,7 @@ class App extends Component {
     }));
 
     //load tv/movies list from TheMovieDB API
-    axios.get('https://api.themoviedb.org/3/discover/' + this.state.type + '?api_key=92b418e837b833be308bbfb1fb2aca1e&language=' + userLang + '&sort_by=popularity.desc&page=&1timezone=America/New_York&include_null_first_air_dates=false')
+    axios.get('https://api.themoviedb.org/3/discover/' + this.state.type + '?api_key=92b418e837b833be308bbfb1fb2aca1e&language=' + userLang + '&sort_by=popularity.desc&page=' + this.state.pageNumber + '&timezone=America/New_York&include_null_first_air_dates=false')
      .then(items => {
        this.setState({filterMovies: items.data.results});
      });

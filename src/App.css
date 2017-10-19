@@ -64,7 +64,7 @@
   height: 60px;
   left: 50%;
   padding: 18px;
-  margin-left: -87px !important;
+  margin-left: -81px !important;
   display: block; }
 
 .navbarTop {
@@ -192,24 +192,26 @@
   border: 1px solid #fff;
   padding: 2px 4px; }
 
-.movieList ul {
-  margin: 0;
-  padding: 0;
-  color: #DAE0D4;
-  font-weight: bold;
-  text-transform: uppercase; }
-  .movieList ul li {
-    list-style-type: none;
-    display: inline;
+.movieList {
+  padding-bottom: 20px; }
+  .movieList ul {
     margin: 0;
     padding: 0;
-    color: #fff;
-    font-weight: normal;
-    text-transform: none; }
-  .movieList ul li:after {
-    content: ', '; }
-  .movieList ul li:last-child:after {
-    content: ""; }
+    color: #DAE0D4;
+    font-weight: bold;
+    text-transform: uppercase; }
+    .movieList ul li {
+      list-style-type: none;
+      display: inline;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      font-weight: normal;
+      text-transform: none; }
+    .movieList ul li:after {
+      content: ', '; }
+    .movieList ul li:last-child:after {
+      content: ""; }
 
 .rating {
   position: absolute;
