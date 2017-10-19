@@ -1,6 +1,8 @@
 # Show+
 
-Show+ est une petite application permettant d'afficher une liste de films ou de séries et consulter leur fiches via une interface soignée.
+Show+ est une petite application React permettant d'afficher une liste de films ou de séries et consulter leur fiches via une interface soignée.
+
+![Homepage](https://i.imgur.com/EtW2Dzr.jpg)
 
 ## Cahier des charges
 
@@ -18,10 +20,19 @@ J'ai listé ci-dessous les outils principaux que j'ai utilisé pour ce projet :
 * [Sass] - Préprocesseur CSS (j'utilise la syntaxe SCSS)
 * [React Bootstrap] - Version de Bootstrap pour React
 * [MomentJS] - Manipulation des dates de l'API
-* [PercentageCircle] - Composant que j'ai un peu modifié pour convenir à mes besoins
-* [Lodash] - Manipulation avancée des arrays
+* [PercentageCircle] - Composant un peu modifié pour convenir à mes besoins
+* [Lodash] - Manipulation avancée des arrays et objets
 
 Mais aussi la police d'écriture Roboto et le pack d'icône [Font Awesome][Font Awesome].
+
+## Configuration
+
+Pour changer le type de contenu ou le numéro de la page chargée à l'écran, ouvrez *src/App.js* et modifiez les paramètres suivants :
+
+    this.state = {
+      type: 'movie', //'movie' ou 'tv
+      pageNumber: '1' //numéro de la page
+    };
 
 ## Lancer l'application
 
@@ -40,17 +51,17 @@ J'ai commencé par dessiner un prototype low-res sur papier pour avoir une idée
 
 Pour servir de base à mon développement, j'ai apposé une grille Bootstrap pour mettre en place une application responsive. L'application se présente sous forme d'une galerie de vignettes, en 4 colonnes sur un grand écran. Des vignettes pas trop petites pour que l'on puisse distinguer rapidement leurs informations, mais pas non plus trop grandes pour avoir apercevoir un maximum d'oeuvres sur une même page.
 
-Chaque vignette contient 4 informations principales : une illustration, le titre de l'oeuvre, le ou les genre(s) ainsi qu'une note moyenne par les utilisateurs de TMDB. J'ai choisi de placer la note en overlay par-dessus l'illustration. Pour renforcer sa visibilité, j'ai mis en place le code couleur suivant, pour des notes allant de 0 à 100 :
+Chaque vignette contient 4 informations principales suivantes : une illustration, le titre de l'oeuvre, le ou les genre(s) ainsi qu'une note moyenne par les utilisateurs de TMDB. J'ai choisi de placer la note en overlay par-dessus l'illustration. Pour renforcer sa visibilité, j'ai mis en place le code couleur suivant, pour des notes allant de 0 à 100 :
 - 0 -> 60 : Rouge
 - 61 -> 70 : Jaune
 - 71 -> 80 : Vert clair
 - 81 -> 100 : Vert
 
-Au passage de la souris sur chacune des vignettes, je fais disparaître l'overlay pour mettre en avant l'illustration de l'oeuvre et, comme pour simuler une pression physique sur l'élement, j'applique un zoom arrière à l'illustration.
+Au passage de la souris sur chacune des vignettes, je fais disparaître l'overlay pour mettre en avant l'illustration de l'oeuvre et, comme pour simuler une pression physique sur l'élement, j'applique un zoom arrière à l'illustration. Un clic sur chaque vignette ouvre un pop-up contenant des détails sur l'oeuvre. Par rapport à une page indépendante, un pop-up permet à l'utilisateur de plus facilement switcher entre les oeuvres. Si les données ne sont pas encore prêtent à être afficher, j'affiche un message indiquant à l'utilisateur leur chargement.
+
+![Movie Details](https://i.imgur.com/WyROWEj.jpg)
 
 Au chargement de la page, j'ai également choisi de faire apparaître toutes les vignettes en augmentant progressivement taille et opacité. J'ai effectué l'ensemble de ces animations grâce à CSS3.
-
-Un clic sur chaque vignette ouvre un pop-up contenant des détails sur l'oeuvre. Par rapport à une page indépendante, un pop-up permettra à l'utilisateur de plus facilement switcher entre les oeuvres.
 
 Licence
 ----
