@@ -24,7 +24,7 @@ J'ai listé ci-dessous les outils principaux que j'ai utilisé pour ce projet :
 * [Lodash] - Manipulation avancée des arrays et objets
 * [PercentageCircle] - Composant un peu modifié pour convenir à mes besoins
 
-...mais également la police d'écriture Roboto et le célèbre pack d'icône [Font Awesome][Font Awesome].
+...mais également la police d'écriture Roboto et le célèbre pack d'icônes [Font Awesome][Font Awesome].
 
 ## Configuration
 
