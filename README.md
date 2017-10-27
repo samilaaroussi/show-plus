@@ -3,6 +3,7 @@
 Show+ est une petite application React permettant d'afficher une liste de films ou de séries et consulter leur fiches via une interface soignée.
 
 ![Homepage](https://i.imgur.com/mLfxqqm.jpg)
+![Movie Details](https://i.imgur.com/WyROWEj.jpg)
 
 ## Outils
 
