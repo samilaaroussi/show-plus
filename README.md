@@ -1,11 +1,11 @@
 # Show+
 
-Show+ est une petite application React permettant d'afficher une liste de films ou de séries et consulter leur fiches via une interface soignée.
+Show+ is a small React APP that allow to display a list of movies and series and watch their details with a cool UI, using the TMDB [TheMovieDB](https://developers.themoviedb.org/3/) API.
 
 ![Homepage](https://i.imgur.com/mLfxqqm.jpg)
 ![Movie Details](https://i.imgur.com/WyROWEj.jpg)
 
-## Outils
+## Tools
 
 * [ReactJS]
 * [TheMovieDB](https://developers.themoviedb.org/3/)
@@ -20,27 +20,27 @@ Show+ est une petite application React permettant d'afficher une liste de films 
 
 ## Configuration
 
-Pour changer le type de contenu ou le numéro de la page chargée à l'écran, ouvrez *src/App.js* et modifiez les paramètres suivants :
+To change the type of content or the page number loaded on screen, open *src/App.js* and edit the parameters below :
 
     this.state = {
-      type: 'movie', //'movie' ou 'tv
-      pageNumber: '1' //numéro de la page
+      type: 'movie', //'movie' or 'tv
+      pageNumber: '1' //page number
     };
 
-## Lancer l'application :rocket:
+## Launch the APP :rocket:
 
-À la racine du projet, renommez le fichier *.env.exemple* en *.env*. Ouvrez le fichier puis entrez votre clé API TMDB comme ci-dessous :
+At the root of the project, rename the file *.env.exemple* to *.env*. Open the file and enter your TMDB API key as below :
   
 ```REACT_APP_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx```
 
-Enfin, pour lancer le serveur de développement et tester l'application, entrez les commandes suivantes dans votre terminal :
+Finally, to launch the development server and test the application, enter the command below in your terminal :
 
 ```sh
 $ cd show-plus
 $ npm start
 ```
 
-Licence
+License
 ----
 
 MIT
